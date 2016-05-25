@@ -11,16 +11,13 @@ ob_start();
 		
 			<tr>
 				
-				<td>Nom:<input type="text" name="nom" maxlength="250" ></td>
+				<td>Nom:<input type="text" name="nom" maxlength="250" ></td><td>Prenom<input type="text"name="prenom" maxlength="10" ></td>
+				
 			</tr>
 			<tr>
-				
-				<td>Prenom<input type="text"name="prenom" maxlength="10" ></td>
+				<td><input class="btnrech" type="submit"name="btnValide" value="Rechercher" maxlength="10" ></td>
 			</tr>
-			<tr>
-				
-				<td><input  type="submit"name="btnValide" value="Rechercher" maxlength="10" ></td>
-			</tr>
+			
 			<tr>
 				<td>Numero</td>
 				<td>Nom</td>

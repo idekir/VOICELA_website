@@ -11,16 +11,16 @@ ob_start();
 		
 			<tr>
 				
-				<td>Titre:<input type="text" name="leTitre" maxlength="250" ></td>
+				<td>Titre:<input type="text" name="leTitre" maxlength="250" ></td><td>Numero de Visa<input type="text"name="numVisa" maxlength="10" ></td>
+				
 			</tr>
+			
 			<tr>
 				
-				<td>Numero de Visa<input type="text"name="numVisa" maxlength="10" ></td>
-			</tr>
-			<tr>
 				
-				<td><input  type="submit"name="btnValide" value="Rechercher" maxlength="10" ></td>
+				<td><input class="btnrech" type="submit"name="btnValide" value="Rechercher" maxlength="10" ></td>
 			</tr>
+			
 			<tr>
 				<td>Visa</td>
 				<td>Titre</td>

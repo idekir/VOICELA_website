@@ -1,9 +1,12 @@
-<?php
+
+
+	<?php
 
 
 require_once 'Model/model.php';
 require_once 'Model/listeManager.php';
 require_once 'Model/vipManager.php';
+require_once 'Model/mariageManager.php';
 
 if(isset($_GET['page']))
 {
@@ -67,7 +70,7 @@ if(isset($_GET['page']))
 			{
 				$arrayVip = $vm->getVip('all');
 			}
-			include ('Views/vip.php');
+			include ('Views/mariage.php');
 			
 			
 		}
@@ -78,6 +81,47 @@ if(isset($_GET['page']))
 			include ('Views/vip.php');
 		}
 	}
+	
+	if($_GET['page']=='mariage')
+	{	$mm = new mariageManager();
+		
+		if(isset($_POST['btnValide']) and $_POST['btnValide']=='Rechercher')
+		{
+			
+			$nom=$_POST['nom'];
+			$prenom = $_POST['prenom'];
+			
+			
+			
+			if(!empty($nom))
+			{				
+				$arrayMari = $mm->getMari('nom',$nom);
+				$arrayConj = $mm->getConj('nom',$nom);
+			}
+			elseif(!empty($prenom))
+			{
+				$arrayMari = $mm->getMari('prenom',$prenom);
+				$arrayConj = $mm->getConj('prenom',$prenom);
+			}
+			else
+			{
+				$arrayMari = $mm->getMari('all');
+				$arrayConj = 0;
+
+			}
+			include ('Views/mariage.php');
+			
+			
+		}
+		else
+		{
+			
+			$arrayMari = $mm->getMari('all');
+			$arrayConj = 0;
+			include ('Views/mariage.php');
+		}
+	}
+	
 }
 else
 {
@@ -97,3 +141,4 @@ else
 	
 
 ?>
+	
