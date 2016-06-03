@@ -5,6 +5,7 @@ class mariageManager extends Model
 	{
 		if($typeParam=='nom')
 		{
+			
 			$sql = "select * from VIP,EVENEMENT where nomVip = ? and VIP.numVip=EVENEMENT.numVip";
 			$req = $this->executerRequete($sql,array($param));
 		}
@@ -40,6 +41,12 @@ class mariageManager extends Model
 			$req = $this->executerRequete($sql,array($param));
 		}
 		
+		if($typeParam=='all')
+		{
+			$sql = "select nomVip,prenomVip from VIP where numVip IN(select numVipConjoint from EVENEMENT where numVip IN (Select numVip from VIP)) ";
+			$req = $this->executerRequete($sql,array($param));
+			
+		}
 		
 		
 		

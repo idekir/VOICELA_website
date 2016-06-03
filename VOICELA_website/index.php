@@ -1,18 +1,19 @@
-
-
-	<?php
+<?php
 
 
 require_once 'Model/model.php';
 require_once 'Model/listeManager.php';
 require_once 'Model/vipManager.php';
 require_once 'Model/mariageManager.php';
+require_once 'Model/photoManager.php';
+
 
 if(isset($_GET['page']))
 {
 	
 	if($_GET['page']=='caracteristique')
 	{	$lm = new listeManager();
+		
 		
 		if(isset($_POST['btnValide']) and $_POST['btnValide']=='Rechercher')
 		{
@@ -49,6 +50,7 @@ if(isset($_GET['page']))
 	}
 	if($_GET['page']=='vip')
 	{	$vm = new vipManager();
+		$pm = new photoManager();
 		
 		if(isset($_POST['btnValide']) and $_POST['btnValide']=='Rechercher')
 		{
@@ -61,16 +63,19 @@ if(isset($_GET['page']))
 			if(!empty($nom))
 			{
 				$arrayVip = $vm->getVip('nom',$nom);
+				$arrayPhotosVip = $pm->getPhotosVip('nom',$nom);
 			}
 			elseif(!empty($prenom))
 			{
 				$arrayVip = $vm->getVip('prenom',$prenom);
+				$arrayPhotosVip = $pm->getPhotosVip('prenom',$prenom);
 			}
 			else
 			{
 				$arrayVip = $vm->getVip('all');
+				$arrayPhotosVip = $pm->getPhotosVip('all');
 			}
-			include ('Views/mariage.php');
+			include ('Views/vip.php');
 			
 			
 		}
@@ -78,6 +83,7 @@ if(isset($_GET['page']))
 		{
 			
 			$arrayVip = $vm->getVip('all');
+			$arrayPhotosVip = $pm->getPhotosVip('all');
 			include ('Views/vip.php');
 		}
 	}
@@ -106,7 +112,7 @@ if(isset($_GET['page']))
 			else
 			{
 				$arrayMari = $mm->getMari('all');
-				$arrayConj = 0;
+				$arrayConj = $mm->getConj('all');
 
 			}
 			include ('Views/mariage.php');
@@ -117,7 +123,7 @@ if(isset($_GET['page']))
 		{
 			
 			$arrayMari = $mm->getMari('all');
-			$arrayConj = 0;
+			$arrayConj = $mm->getConj('all');
 			include ('Views/mariage.php');
 		}
 	}

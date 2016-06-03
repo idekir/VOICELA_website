@@ -7,26 +7,17 @@ ob_start();
 ?>
 	
 	<form action="index.php?page=caracteristique" method='post'>
-		<table>
+		<table class="filtre">
 		
 			<tr>
 				
-				<td>Titre:<input type="text" name="leTitre" maxlength="250" ></td><td>Numero de Visa<input type="text"name="numVisa" maxlength="10" ></td>
-				
-			</tr>
-			
-			<tr>
-				
-				
+				<td><input class="form" placeholder="Titre" type="text" name="leTitre" maxlength="100" ></td>
+				<td><input class="form" placeholder="Numero Visa" type="text"name="numVisa" maxlength="100" ></td>
 				<td><input class="btnrech" type="submit"name="btnValide" value="Rechercher" maxlength="10" ></td>
+			
 			</tr>
 			
-			<tr>
-				<td>Visa</td>
-				<td>Titre</td>
-				<td>Genre</td>
-				<td>Année</td>
-			</tr>
+			
 			
 			<tr>
 				<td>
@@ -34,7 +25,7 @@ ob_start();
 					$i=0;
 					while($i<sizeof($arrayCaract))
 					{
-						echo '<tr><td>'.$arrayCaract[$i]['numVisa'].'</td><td>'.$arrayCaract[$i]['titreFilm'].'</td><td>'.$arrayCaract[$i]['libelleGenre'].'</td><td>'.$arrayCaract[$i]['anneeFilm'].'</td></tr>';
+						echo '<div class="divfilm"></div>';
 						$i++;
 					}
 					?>

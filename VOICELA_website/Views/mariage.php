@@ -11,7 +11,7 @@ ob_start();
 		
 			<tr>
 				
-				<td>Nom:<input type="text" name="nom" maxlength="250" ></td><td>Prenom<input type="text"name="prenom" maxlength="10" ></td>
+				<td>Nom:<input type="text" name="nom" maxlength="250" ></td><td>Prenom:<input type="text"name="prenom" maxlength="10" ></td>
 				
 			</tr>
 			<tr>
@@ -24,9 +24,10 @@ ob_start();
 				<td>Lieu</td>
 				<td>Nom Vip</td>
 				<td>Prenom Vip</td>
+				
 				<td>Nom conjoint</td>
 				<td>Prenom conjoint</td>
-				
+					
 			</tr>
 			
 			<tr>
